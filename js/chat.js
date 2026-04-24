@@ -32,8 +32,6 @@ const CLOSE_ICON = `
 </svg>
 `;
 
-const GROQ_API_KEY = "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"; 
-
 const SYSTEM_PROMPT = `Eres el asistente virtual de Esaú Carvajal, un profesional colombiano basado en Medellín.
 Tu rol es responder preguntas sobre él de forma amigable, profesional y concisa.
 
@@ -69,27 +67,23 @@ let hasGreeted = false;
 let usedQuestions = new Set(); // ← registra las preguntas ya usadas
 
 async function askGroq(userMessage) {
-  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+  const response = await fetch("https://esau-chat.esaucarvajalangarita.workers.dev/", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${GROQ_API_KEY}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      model: "llama-3.1-8b-instant",
-      max_tokens: 300,
-      temperature: 0.7,
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: userMessage }
-      ]
+      message: userMessage,
+      systemPrompt: SYSTEM_PROMPT
     })
   });
 
   if (!response.ok) throw new Error("Error en la API");
+
   const data = await response.json();
   return data.choices[0].message.content;
 }
+
 
 function addMessage(text, type) {
   const messages = document.getElementById("chat-messages");
