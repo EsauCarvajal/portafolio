@@ -37,33 +37,80 @@ h2::selection {
   background: var(--secondary-color);
 }
 
-/* Dark mode toggle */
+/* Language toggle */
 #switch {
   display: none;
 }
 
-.toggle-icons {
+.theme-switch {
+  --lang-pill-width: 76px;
+  --lang-toggle-padding: 5px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.toggle-icons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: calc(var(--lang-pill-width) * 2 + var(--lang-toggle-padding) * 2 + 2px);
+  padding: var(--lang-toggle-padding);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  background: var(--card-background);
   cursor: pointer;
+  user-select: none;
 }
 
-.toggle-icons > img {
-  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  width: 30px;
+.toggle-icons::after {
+  content: "";
+  position: absolute;
+  top: var(--lang-toggle-padding);
+  left: var(--lang-toggle-padding);
+  width: var(--lang-pill-width);
+  height: calc(100% - (var(--lang-toggle-padding) * 2));
+  border-radius: 999px;
+  background: var(--primary-color);
+  transition: transform 0.25s ease;
 }
 
-.moon {
-  transform: rotate(10deg);
+.lang-option {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: var(--lang-pill-width);
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: var(--weight-bold);
+  color: var(--text-color);
+  opacity: 0.72;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-#switch:checked + .toggle-icons .moon {
-  transform: rotate(250deg);
+.lang-code {
+  line-height: 1;
 }
 
-#switch:checked + .toggle-icons .sun {
-  transform: rotate(100deg);
+.lang-flag {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#switch:not(:checked) + .toggle-icons .lang-option:first-child,
+#switch:checked + .toggle-icons .lang-option:last-child {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+#switch:checked + .toggle-icons::after {
+  transform: translateX(var(--lang-pill-width));
 }
 
 /* Header Container */

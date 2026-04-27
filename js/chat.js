@@ -32,68 +32,225 @@ const CLOSE_ICON = `
 </svg>
 `;
 
-const SYSTEM_PROMPT = `Eres el asistente virtual de Esaú Carvajal, un profesional colombiano que reside en Medellín, Colombia.
+const ASSISTANT_CONTEXT = `Eres el asistente virtual de Esaú Carvajal, un profesional colombiano que reside en Medellín, Colombia.
 Tu rol es responder preguntas sobre él de forma amigable, profesional y concisa.
 
 Información sobre Esaú:
 - Es una persona nacida en la zona de Urabá del departamento de Antioquia del país Colombia. Tiene 22 años, es ingeniero civil y tiene un posgrado de especialización en Visual Analytics y Big Data.
 - Actualmente vive en Medellín con sus padres, hermano y abuela.
 - Sus actividades favoritas de ocio en la actualidad se relacionan con el running, leer y jugar videojuegos.
-- Su videojuego favorito es Dofus, su raza favorita es el sram 
-- Sueña con crecer laboralmente para poder ayudar a su entorno cercano
-- Es pelirrojo 
-- Es una persona analítica que le gusta aprender y se adapta rápido a nuevas tecnologías, le gusta implementar soluciones creativas, tal como este chatbot :)
+- Su videojuego favorito es Dofus, su raza favorita es el sram.
+- Sueña con crecer laboralmente para poder ayudar a su entorno cercano.
+- Es pelirrojo.
+- Es una persona analítica que le gusta aprender y se adapta rápido a nuevas tecnologías. Le gusta implementar soluciones creativas, tal como este chatbot :).
 - Ha trabajado en roles de Analista de Datos y se perfila como un Data Scientist, área por la cual presenta un interés cada vez más creciente.
-- Habilidades técnicas: Python, HTML/CSS/JavaScript, WordPress, Power BI, y AWS
-- Certificaciones: APTIS Inglés C1 (British Council), AWS Academy Cloud Foundations, Data Analysis with Python (IBM) y Programa especializado: HTML, CSS, and Javascript for Web Developers
-- Busca oportunidades en el área de Data Science
-- Disponible para trabajo presencial, híbrido o remoto, reside en la ciudad de Medellín
+- Habilidades técnicas: Python, HTML/CSS/JavaScript, WordPress, Power BI, y AWS.
+- Certificaciones: APTIS Inglés C1 (British Council), AWS Academy Cloud Foundations, Data Analysis with Python (IBM) y Programa especializado: HTML, CSS, and Javascript for Web Developers.
+- Busca oportunidades en el área de Data Science.
+- Disponible para trabajo presencial, híbrido o remoto, reside en la ciudad de Medellín.
 - LinkedIn: https://www.linkedin.com/in/esauca/
-- Github: https://github.com/EsauCarvajal 
+- Github: https://github.com/EsauCarvajal
 
 Reglas importantes:
-- Responde siempre en español cuando la programación de la página así lo dicte, de lo contrario, si la programación de la página requiere que respondas en inglés, debes hacerlo. No utilices ningún otro idioma, puede enviar un mensaje aclarando esto si te escriben en otro idioma.
-- Sé conciso, máximo 3-4 oraciones por respuesta. Si el contexto requiere más palabras/oraciones, puedes proceder.
+- Sé conciso, máximo 3-4 oraciones por respuesta. Si el contexto requiere más palabras u oraciones, puedes proceder.
 - Si te preguntan algo que no sabes de Esaú, sugiere contactarlo por LinkedIn o presionando el botón de contacto que se ubica en la parte superior de la página.
-- No inventes información que no esté en este contexto
-- Me puedes tratar solo como Esaú
-- Cuando respondes alguna pregunta no es necesario que te vuelvas a presentar
-- Sé amigable, cercano y profesional
-- Si te preguntan quién eres, di que eres Topi, un asistente virtual creado por Esaú
-- Verifica muy bien la ortografía en el idioma ESPAÑOL
-- No respondas preguntas de cultura general o relacionadas, cíñete al contexto de que el chat es para temas de reclutamiento en IT, pero ten en cuenta que información personal o de contexto sobre Esaú sí se puede dar
-- No lo consideres nunca como "experto"
-- Al hablar de los proyectos, tienes que mencionar los especificados en la parte de "Explicación de proyectos" (creados por Esaú).
-- NO realices preguntas al final de los mensajes que envíes, ya que no tienes memoria contextual
+- No inventes información que no esté en este contexto.
+- Me puedes tratar solo como Esaú.
+- Cuando respondes alguna pregunta no es necesario que te vuelvas a presentar.
+- Sé amigable, cercano y profesional.
+- Si te preguntan quién eres, di que eres Topi, un asistente virtual creado por Esaú.
+- No respondas preguntas de cultura general o relacionadas. Cíñete al contexto de que el chat es para temas de reclutamiento en IT, pero ten en cuenta que información personal o de contexto sobre Esaú sí se puede dar.
+- No lo consideres nunca como "experto".
+- Al hablar de los proyectos, tienes que mencionar los especificados en la parte de "Explicación de proyectos" creados por Esaú.
+- No realices preguntas al final de los mensajes que envíes, ya que no tienes memoria contextual.
 
 Explicación de proyectos:
-- Kurobri (Monitoreo Satelital de Cultivos): es una plataforma web diseñada para que agricultores de Urabá monitoreen la salud de sus cultivos de banano mediante el índice de vegetación NDVI en mapas satelitales interactivos. Su arquitectura está desplegada en la nube de AWS e integra una red VPC segura, una instancia EC2 para la aplicación, almacenamiento S3 para archivos raster (.tif) y una base de datos RDS MySQL en configuración Multi-AZ; el sistema utiliza JavaScript con OpenLayers para la visualización y PHP para la gestión de usuarios
-- Clasificador de Admisión a Guarderías: Este sistema automatiza la predicción de recomendaciones para la admisión de niños en guarderías (multiclase) analizando 8 características socioeconómicas y familiares. Su arquitectura compara un modelo de Random Forest optimizado con una Red Neuronal Artificial (RNA) de dos capas ocultas (16 y 12 neuronas) desarrollada en TensorFlow, la cual utiliza funciones de activación ReLU y Softmax para alcanzar una precisión del 96.21% en la clasificación de prioridades
-- Evaluador de Aceptabilidad de Vehículos: El proyecto clasifica automóviles en cuatro niveles de aceptabilidad basándose en especificaciones técnicas y de costo como seguridad, mantenimiento y precio. Implementa una arquitectura basada en ensambles de aprendizaje, comparando un Árbol de Decisión simple con un Random Forest de 200 árboles que utiliza codificación ordinal para respetar la jerarquía de los atributos, logrando un rendimiento superior con un AUC de 0.98 y una alta capacidad de discriminación entre categorías
-- Topi: Topi funciona como un chatbot incrustado en la interfaz del portafolio mediante un widget flotante desarrollado con JavaScript y estilizado con CSS. El usuario puede interactuar escribiendo preguntas directamente o utilizando preguntas predefinidas orientadas a reclutamiento. Cada consulta es enviada a un modelo de lenguaje de Groq, específicamente llama-3.1-8b-instant
-- Lujofragancias: una página web de perfumería para posicionamiento SEO, creado con el objetivo de probar la atracción de audiencia hacia un tema nicho
+- Kurobri (Monitoreo Satelital de Cultivos): es una plataforma web diseñada para que agricultores de Urabá monitoreen la salud de sus cultivos de banano mediante el índice de vegetación NDVI en mapas satelitales interactivos. Su arquitectura está desplegada en la nube de AWS e integra una red VPC segura, una instancia EC2 para la aplicación, almacenamiento S3 para archivos raster (.tif) y una base de datos RDS MySQL en configuración Multi-AZ; el sistema utiliza JavaScript con OpenLayers para la visualización y PHP para la gestión de usuarios.
+- Clasificador de Admisión a Guarderías: este sistema automatiza la predicción de recomendaciones para la admisión de niños en guarderías analizando 8 características socioeconómicas y familiares. Su arquitectura compara un modelo de Random Forest optimizado con una red neuronal artificial de dos capas ocultas desarrollada en TensorFlow, la cual utiliza funciones de activación ReLU y Softmax para alcanzar una precisión del 96.21% en la clasificación de prioridades.
+- Evaluador de Aceptabilidad de Vehículos: el proyecto clasifica automóviles en cuatro niveles de aceptabilidad basándose en especificaciones técnicas y de costo como seguridad, mantenimiento y precio. Implementa una arquitectura basada en ensambles de aprendizaje, comparando un árbol de decisión simple con un Random Forest de 200 árboles que utiliza codificación ordinal para respetar la jerarquía de los atributos, logrando un rendimiento superior con un AUC de 0.98 y una alta capacidad de discriminación entre categorías.
+- Topi: Topi funciona como un chatbot incrustado en la interfaz del portafolio mediante un widget flotante desarrollado con JavaScript y estilizado con CSS. El usuario puede interactuar escribiendo preguntas directamente o utilizando preguntas predefinidas orientadas a reclutamiento. Cada consulta es enviada a un modelo de lenguaje de Groq, específicamente llama-3.1-8b-instant.
+- Lujofragancias: una página web de perfumería para posicionamiento SEO, creada con el objetivo de probar la atracción de audiencia hacia un tema nicho.`;
 
-Respuesta a las preguntas predeterminadas:
-"¿Cuál es el perfil profesional de Esaú?": Ingeniero con especialización en Visual Analytics y Big Data. Destaca por aprender tecnologías de manera ágil, descomponer problemas complejos para encontrar soluciones creativas y aplicar pensamiento crítico en la toma de decisiones basadas en datos.
-"¿Qué habilidades blandas lo diferencian?": Comunicación asertiva, curiosidad intelectual, pensamiento crítico, resiliencia, trabajo en equipo y orientación a resultados.
-"¿Cuál es su nivel de inglés?": Su nivel de inglés es C1, obtenido en el examen de certificación APTIS 4 habilidades (British Council)
-"¿Qué tecnologías y herramientas maneja?": Python, específicamente en liberías como Pandas, Matplotlib y Scikit-learn. Además, utiliza Git para control de versiones, Power BI para dashboards y HTML/CSS/JavaScript para el desarrollo web
-"¿Está disponible para trabajar?": Sí, Esaú busca oportunidades en el área de ciencia de datos. Está disponible para trabajo presencial, híbrido o remoto y reside en la ciudad de Medellín.
-`;
+const CHAT_TRANSLATIONS = {
+  es: {
+    toggleOpenLabel: "Abrir asistente virtual",
+    toggleCloseLabel: "Cerrar asistente virtual",
+    subtitle: "Pregúntame lo que quieras",
+    inputPlaceholder: "Escribe una pregunta...",
+    sendLabel: "Enviar",
+    greeting:
+      "¡Hola! Soy Topi, el asistente virtual de Esaú. Puedes elegir una pregunta o escribir la tuya.",
+    typing: "Escribiendo",
+    errorMessage: "Lo siento, hubo un problema. Intenta de nuevo en unos segundos.",
+    languageInstruction:
+      "La página está en español. Responde siempre en español. Si te escriben en otro idioma, aclara brevemente que este asistente solo responde en español o inglés según el idioma configurado. Si el mensaje del usuario es demasiado corto, ambiguo o no expresa una intención clara, no inventes información ni respondas con datos del perfil; pídele que formule una pregunta más específica en español.",
+    quickGuideTitle: "Respuesta a las preguntas predeterminadas",
+    unclearMessage:
+      "Haz una pregunta más clara sobre Esaú. Por ejemplo, puedes preguntar por su perfil, habilidades, proyectos, certificaciones o disponibilidad.",
+    greetingReply:
+      "Hola. Puedes preguntarme por el perfil de Esaú, sus habilidades, proyectos, certificaciones o disponibilidad."
+  },
+  en: {
+    toggleOpenLabel: "Open virtual assistant",
+    toggleCloseLabel: "Close virtual assistant",
+    subtitle: "Ask me anything",
+    inputPlaceholder: "Type a question...",
+    sendLabel: "Send",
+    greeting:
+      "Hi! I'm Topi, Esau's virtual assistant. You can choose a question or type your own.",
+    typing: "Typing",
+    errorMessage: "Sorry, there was a problem. Please try again in a few seconds.",
+    languageInstruction:
+      "The website is in English. Answer only in English, even if the factual context is written in Spanish. If the user writes in another language, briefly clarify that this assistant only replies in English or Spanish depending on the selected language. If the user's message is too short, ambiguous, or does not express a clear intent, do not invent profile facts; ask for a more specific question in English.",
+    quickGuideTitle: "Reference answers for predefined questions",
+    unclearMessage:
+      "Please ask a clearer question about Esaú. For example, you can ask about his profile, skills, projects, certifications, or availability.",
+    greetingReply:
+      "Hi. You can ask me about Esaú's profile, skills, projects, certifications, or availability."
+  }
+};
 
-const QUICK_QUESTIONS = [
-  "¿Cuál es el perfil profesional de Esaú?",
-  "¿Qué habilidades blandas lo diferencian?",
-  "¿Cuál es su nivel de inglés?",
-  "¿Qué tecnologías y herramientas maneja?",
-  "¿Qué certificaciones tiene?",
-  "¿Está disponible para trabajar?",
+const QUICK_QUESTION_KEYS = [
+  "profile",
+  "softSkills",
+  "englishLevel",
+  "techStack",
+  "certifications",
+  "availability"
 ];
+
+const QUICK_QUESTION_CONTENT = {
+  profile: {
+    es: "¿Cuál es el perfil profesional de Esaú?",
+    en: "What is Esaú's professional profile?",
+    answerEs:
+      "Ingeniero con especialización en Visual Analytics y Big Data. Destaca por aprender tecnologías de manera ágil, descomponer problemas complejos para encontrar soluciones creativas y aplicar pensamiento crítico en la toma de decisiones basadas en datos.",
+    answerEn:
+      "He is an engineer with a specialization in Visual Analytics and Big Data. He stands out for learning technologies quickly, breaking down complex problems into creative solutions, and applying critical thinking to data-driven decisions."
+  },
+  softSkills: {
+    es: "¿Qué habilidades blandas lo diferencian?",
+    en: "What soft skills make him stand out?",
+    answerEs:
+      "Comunicación asertiva, curiosidad intelectual, pensamiento crítico, resiliencia, trabajo en equipo y orientación a resultados.",
+    answerEn:
+      "Assertive communication, intellectual curiosity, critical thinking, resilience, teamwork, and a results-oriented mindset."
+  },
+  englishLevel: {
+    es: "¿Cuál es su nivel de inglés?",
+    en: "What is his English level?",
+    answerEs:
+      "Su nivel de inglés es C1, obtenido en el examen de certificación APTIS de cuatro habilidades del British Council.",
+    answerEn:
+      "His English level is C1, earned through the British Council's four-skills APTIS certification exam."
+  },
+  techStack: {
+    es: "¿Qué tecnologías y herramientas maneja?",
+    en: "What technologies and tools does he use?",
+    answerEs:
+      "Python, especialmente librerías como Pandas, Matplotlib y Scikit-learn. Además, utiliza Git para control de versiones, Power BI para dashboards y HTML/CSS/JavaScript para desarrollo web.",
+    answerEn:
+      "Python, especially libraries such as Pandas, Matplotlib, and Scikit-learn. He also uses Git for version control, Power BI for dashboards, and HTML/CSS/JavaScript for web development."
+  },
+  certifications: {
+    es: "¿Qué certificaciones tiene?",
+    en: "What certifications does he have?",
+    answerEs:
+      "Cuenta con APTIS Inglés C1 del British Council, AWS Academy Cloud Foundations, Data Analysis with Python de IBM y el programa especializado HTML, CSS, and Javascript for Web Developers.",
+    answerEn:
+      "He holds the British Council APTIS English C1 certification, AWS Academy Cloud Foundations, IBM's Data Analysis with Python, and the specialized program HTML, CSS, and Javascript for Web Developers."
+  },
+  availability: {
+    es: "¿Está disponible para trabajar?",
+    en: "Is he available for work?",
+    answerEs:
+      "Sí, Esaú busca oportunidades en el área de ciencia de datos. Está disponible para trabajo presencial, híbrido o remoto y reside en la ciudad de Medellín.",
+    answerEn:
+      "Yes. Esaú is looking for opportunities in data science. He is available for on-site, hybrid, or remote work and is based in Medellín."
+  }
+};
 
 let isOpen = false;
 let isLoading = false;
 let hasGreeted = false;
-let usedQuestions = new Set(); // ← registra las preguntas ya usadas
+let usedQuestions = new Set();
+let conversationVersion = 0;
+
+function getCurrentLanguage() {
+  if (typeof window.getPortfolioLanguage === "function") {
+    return window.getPortfolioLanguage();
+  }
+
+  return window.portfolioLanguage === "en" ? "en" : "es";
+}
+
+function getChatCopy() {
+  return CHAT_TRANSLATIONS[getCurrentLanguage()] || CHAT_TRANSLATIONS.es;
+}
+
+function getLocalizedQuestion(key) {
+  const item = QUICK_QUESTION_CONTENT[key];
+  return item ? item[getCurrentLanguage()] : "";
+}
+
+function normalizeUserInput(text) {
+  return String(text || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getLocalPreReply(text) {
+  const copy = getChatCopy();
+  const normalized = normalizeUserInput(text);
+  const compact = normalized.replace(/\s+/g, "");
+  const greetings = new Set(["hola", "hello", "hi", "hey", "buenas"]);
+
+  if (!compact) {
+    return copy.unclearMessage;
+  }
+
+  if (greetings.has(normalized)) {
+    return copy.greetingReply;
+  }
+
+  if (!/[a-z0-9]/i.test(compact)) {
+    return copy.unclearMessage;
+  }
+
+  if (compact.length === 1) {
+    return copy.unclearMessage;
+  }
+
+  if (/^(.)\1{1,}$/i.test(compact)) {
+    return copy.unclearMessage;
+  }
+
+  return null;
+}
+
+function buildSystemPrompt() {
+  const copy = getChatCopy();
+  const quickGuide = QUICK_QUESTION_KEYS.map((key) => {
+    const question = QUICK_QUESTION_CONTENT[key];
+    return [
+      `- ES "${question.es}": ${question.answerEs}`,
+      `- EN "${question.en}": ${question.answerEn}`
+    ].join("\n");
+  }).join("\n");
+
+  return [
+    ASSISTANT_CONTEXT,
+    "",
+    copy.languageInstruction,
+    "",
+    `${copy.quickGuideTitle}:`,
+    quickGuide
+  ].join("\n");
+}
 
 async function askGroq(userMessage) {
   const response = await fetch("https://esau-chat.esaucarvajalangarita.workers.dev/", {
@@ -103,24 +260,27 @@ async function askGroq(userMessage) {
     },
     body: JSON.stringify({
       message: userMessage,
-      systemPrompt: SYSTEM_PROMPT
+      systemPrompt: buildSystemPrompt()
     })
   });
 
-  if (!response.ok) throw new Error("Error en la API");
+  if (!response.ok) {
+    throw new Error("API error");
+  }
 
   const data = await response.json();
   return data.choices[0].message.content;
 }
 
-
 function addMessage(text, type) {
   const messages = document.getElementById("chat-messages");
+  if (!messages) return null;
+
   const msg = document.createElement("div");
   msg.classList.add("msg", type);
 
   if (type === "loading") {
-    msg.innerHTML = `<span class="dots">Escribiendo</span>`;
+    msg.innerHTML = `<span class="dots">${getChatCopy().typing}</span>`;
   } else if (type === "bot") {
     const linkedText = text.replace(
       /(https?:\/\/[^\s]+)/g,
@@ -137,30 +297,26 @@ function addMessage(text, type) {
   return msg;
 }
 
-
 function addQuickQuestions() {
   const messages = document.getElementById("chat-messages");
+  if (!messages) return;
 
-  // Eliminar sugerencias anteriores para no acumularlas
-  document.querySelectorAll(".quick-suggestions").forEach(el => el.remove());
+  document.querySelectorAll(".quick-suggestions").forEach((element) => element.remove());
+
+  const remaining = QUICK_QUESTION_KEYS.filter((key) => !usedQuestions.has(key));
+  if (!remaining.length) return;
 
   const container = document.createElement("div");
   container.classList.add("quick-suggestions");
 
-  // Solo mostrar preguntas que no se han usado aún
-  const remaining = QUICK_QUESTIONS.filter(q => !usedQuestions.has(q));
-
-  // Si ya se usaron todas, no mostrar el contenedor
-  if (remaining.length === 0) return;
-
-  remaining.forEach(q => {
+  remaining.forEach((key) => {
     const btn = document.createElement("button");
     btn.classList.add("suggestion-btn");
-    btn.textContent = q;
+    btn.textContent = getLocalizedQuestion(key);
     btn.addEventListener("click", () => {
-      usedQuestions.add(q); // ← marcar como usada
-      document.querySelectorAll(".quick-suggestions").forEach(el => el.remove());
-      sendMessage(q);
+      usedQuestions.add(key);
+      document.querySelectorAll(".quick-suggestions").forEach((element) => element.remove());
+      sendMessage(getLocalizedQuestion(key));
     });
     container.appendChild(btn);
   });
@@ -172,7 +328,21 @@ function addQuickQuestions() {
 async function sendMessage(text) {
   if (!text.trim() || isLoading) return;
 
+  const localReply = getLocalPreReply(text);
+  if (localReply) {
+    addMessage(text, "user");
+    addMessage(localReply, "bot");
+    addQuickQuestions();
+    const input = document.getElementById("chat-input");
+    if (input) {
+      input.value = "";
+      input.focus();
+    }
+    return;
+  }
+
   isLoading = true;
+  const requestVersion = conversationVersion;
 
   const input = document.getElementById("chat-input");
   const sendBtn = document.getElementById("chat-send");
@@ -185,13 +355,27 @@ async function sendMessage(text) {
 
   try {
     const reply = await askGroq(text);
+    if (requestVersion !== conversationVersion) {
+      return;
+    }
+
     loadingMsg.remove();
     addMessage(reply, "bot");
     addQuickQuestions();
   } catch (error) {
-    loadingMsg.remove();
-    addMessage("Lo siento, hubo un problema. Intenta de nuevo en unos segundos.", "bot");
+    if (requestVersion !== conversationVersion) {
+      return;
+    }
+
+    if (loadingMsg) {
+      loadingMsg.remove();
+    }
+    addMessage(getChatCopy().errorMessage, "bot");
   } finally {
+    if (requestVersion !== conversationVersion) {
+      return;
+    }
+
     isLoading = false;
     input.disabled = false;
     sendBtn.disabled = false;
@@ -200,9 +384,11 @@ async function sendMessage(text) {
 }
 
 function buildChatWidget() {
+  const copy = getChatCopy();
+
   const toggle = document.createElement("button");
   toggle.id = "chat-toggle";
-  toggle.setAttribute("aria-label", "Abrir asistente virtual");
+  toggle.setAttribute("aria-label", copy.toggleOpenLabel);
   toggle.innerHTML = BOT_ICON;
   document.body.appendChild(toggle);
 
@@ -212,14 +398,14 @@ function buildChatWidget() {
     <div id="chat-header">
       <div class="avatar">${BOT_ICON}</div>
       <div class="info">
-        <span class="name">Topi</span>
-        <span class="subtitle">Pregúntame lo que quieras</span>
+        <span class="name" id="chat-name">Topi</span>
+        <span class="subtitle" id="chat-subtitle">${copy.subtitle}</span>
       </div>
     </div>
     <div id="chat-messages"></div>
     <div id="chat-input-area">
-      <input id="chat-input" type="text" placeholder="Escribe una pregunta..." autocomplete="off" />
-      <button id="chat-send" aria-label="Enviar">
+      <input id="chat-input" type="text" placeholder="${copy.inputPlaceholder}" autocomplete="off" />
+      <button id="chat-send" aria-label="${copy.sendLabel}">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
       </button>
     </div>
@@ -230,20 +416,25 @@ function buildChatWidget() {
     isOpen = !isOpen;
     chatWindow.classList.toggle("visible", isOpen);
     toggle.classList.toggle("open", isOpen);
-
     toggle.innerHTML = isOpen ? CLOSE_ICON : BOT_ICON;
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? getChatCopy().toggleCloseLabel : getChatCopy().toggleOpenLabel
+    );
 
     if (isOpen && !hasGreeted) {
       hasGreeted = true;
       setTimeout(() => {
-        addMessage("¡Hola! 👋 Soy Topi, el asistente virtual de Esaú. Puedes elegir una pregunta o escribir la tuya.", "bot");
+        addMessage(getChatCopy().greeting, "bot");
         addQuickQuestions();
       }, 300);
     }
   });
 
-  document.getElementById("chat-input").addEventListener("keypress", e => {
-    if (e.key === "Enter") sendMessage(e.target.value);
+  document.getElementById("chat-input").addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      sendMessage(event.target.value);
+    }
   });
 
   document.getElementById("chat-send").addEventListener("click", () => {
@@ -251,4 +442,67 @@ function buildChatWidget() {
   });
 }
 
+function refreshChatLanguage() {
+  const copy = getChatCopy();
+  const toggle = document.getElementById("chat-toggle");
+  const subtitle = document.getElementById("chat-subtitle");
+  const input = document.getElementById("chat-input");
+  const sendButton = document.getElementById("chat-send");
+
+  if (toggle) {
+    toggle.setAttribute(
+      "aria-label",
+      isOpen ? copy.toggleCloseLabel : copy.toggleOpenLabel
+    );
+  }
+
+  if (subtitle) {
+    subtitle.textContent = copy.subtitle;
+  }
+
+  if (input) {
+    input.placeholder = copy.inputPlaceholder;
+  }
+
+  if (sendButton) {
+    sendButton.setAttribute("aria-label", copy.sendLabel);
+  }
+
+  resetChatSession({
+    greetImmediately: isOpen
+  });
+}
+
+function resetChatSession(options = {}) {
+  const { greetImmediately = false } = options;
+  const messages = document.getElementById("chat-messages");
+  const input = document.getElementById("chat-input");
+  const sendButton = document.getElementById("chat-send");
+
+  conversationVersion += 1;
+  isLoading = false;
+  hasGreeted = false;
+  usedQuestions = new Set();
+
+  if (messages) {
+    messages.innerHTML = "";
+  }
+
+  if (input) {
+    input.value = "";
+    input.disabled = false;
+  }
+
+  if (sendButton) {
+    sendButton.disabled = false;
+  }
+
+  if (greetImmediately) {
+    hasGreeted = true;
+    addMessage(getChatCopy().greeting, "bot");
+    addQuickQuestions();
+  }
+}
+
+window.addEventListener("portfolio-language-change", refreshChatLanguage);
 document.addEventListener("DOMContentLoaded", buildChatWidget);
